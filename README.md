@@ -30,9 +30,12 @@ We'll be using an existing application that uses the [PokeAPI](http://pokeapi.co
     * What will you have to do to display favorite Pokemon?
 
 ## User Stories
-
-* As a user, I want to select my favorite Pokemon and add them to a list of favorites.
-* As a user, once I add a Pokemon to my list of favorites, I want to be redirected to my favorites page.
+* As a user (AAU) I want to be able to create an account
+* (AAU) I want to be able to sign in
+* (AAU) I want to be able to log out
+* (AAU) I want to browse all the available pokemon
+* As a logged in user, I want to select my favorite Pokemon and add them to a list of favorites
+* As a logged in user, once I add a Pokemon to my list of favorites, I want to be redirected to my favorites page.
 
 ## Requirements
 
