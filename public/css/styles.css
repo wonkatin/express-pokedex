@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: rebeccapurple;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: coral;
+}
+
+.container { 
+    width: 80%;
+    margin: 20px auto;
+}
+
+.card {
+    border: 1px solid burlywood;
+    padding: 5px;
+    margin: 10px;
+}

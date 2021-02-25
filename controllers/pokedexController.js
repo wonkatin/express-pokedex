@@ -4,9 +4,9 @@ const axios = require('axios')
 router.get('/', async (req, res) => {
     const pokemonUrl = 'http://pokeapi.co/api/v2/pokemon?limit=151'
     const response = await axios.get(pokemonUrl)
-    const pokemon = response.data.results
-    
-    res.render('pokemon/index', { pokemon: pokemon })
+    const pokemons = response.data.results
+    console.log(pokemons)
+    res.render('pokedex/index', { pokemons: pokemons })
 })
 
 module.exports = router

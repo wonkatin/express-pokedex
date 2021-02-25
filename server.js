@@ -17,15 +17,16 @@ app.use(ejsLayouts)
 app.use(express.static('public'))
 
 /* Controllers */
-
+app.use('/pokemon', require('./controllers/pokemonController'))
+app.use('/pokedex', require('./controllers/pokedexController'))
 
 /* Routes */
 app.get('/', (req, res) => {
-    res.send('hello world!')
+    res.render('index')
 })
 
 
-//Start the server!
+// Start the server!
 app.listen(PORT, () => {
     console.log('Server listening on port:', PORT)
     rowdyResults.print()
