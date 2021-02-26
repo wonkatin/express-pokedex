@@ -31,9 +31,10 @@ We'll be using the [PokeAPI](http://pokeapi.co/), a Pokemon API that allows us t
 ### Part 1: Project Setup & API Investigation
 Run `npm i` to install dependencies
 
-Setup `server.js` with a basic express erver
+Setup `server.js` with a basic express server
 
-
+Use `axios` to fetch pokemon data from the pokemon API at the home route `/`
+* Display that data in `index.ejs`
 
 ### Part 2: Setup Database
 
