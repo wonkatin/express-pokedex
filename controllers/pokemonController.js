@@ -4,16 +4,20 @@ const axios = require('axios')
 
 
 router.get('/', async (req, res) => {
-    try {
-        const user = await db.user.findOne({
-            where: { id: res.locals.user.id }, 
-            include: db.pokemon
-        })
-
-        // console.log(user)
-        res.render('pokemon/index', { pokemons: user.dataValues.pokemons } )
-    } catch (err) {
-        console.log(err)
+    if(!res.locals.user) {
+        res.redirect('/auth/login')
+    } else {
+        try {
+            const user = await db.user.findOne({
+                where: { id: res.locals.user.id }, 
+                include: db.pokemon
+            })
+    
+            // console.log(user)
+            res.render('pokemon/index', { pokemons: user.dataValues.pokemons } )
+        } catch (err) {
+            console.log(err)
+        }
     }
 })
 

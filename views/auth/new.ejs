@@ -1,0 +1,15 @@
+<h1>Sign up</h1>
+
+<% if (errors) { %>
+    <%= errors %>
+<% } %>
+
+<form method="POST" action="/auth">
+    <label for="user-input">Username:</label>
+    <input id="user-input" type="text" name="username">
+    <br>
+    <label for="pass-input">Password:</label>
+    <input id="pass-input" type="password" name="password">
+    <br>
+    <input type="submit" value="Submit">
+</form>
