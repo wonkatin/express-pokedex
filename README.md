@@ -12,31 +12,30 @@ If you're not familiar with Pokemon, Pokemon is a franchise/universe created by 
 
 ## Getting Started
 
-We'll be using an existing application that uses the [PokeAPI](http://pokeapi.co/), a Pokemon API that allows us to get a list of Pokemon.
+We'll be using the [PokeAPI](http://pokeapi.co/), a Pokemon API that allows us to get a list of Pokemon.
 
-* Fork and clone this repository
-* Run `npm install` to install dependencies
-  * Use `nodemon` to start the server
-
-#### Read the Code
-
-* After setup, **STOP**. You're using an existing application, so make sure to read the code and ensure what the application does. Some questions you may want to ask yourself:
-  * How does the app retrieve a list of Pokemon?
-  * How many Pokemon does the API call retrieve? Why that many?
-  * What are the routes defined in the application?
-  * Think about adding a Pokemon to your favorites.
-    * How will this data be submitted?
-    * What will you have to do to save this data to a database?
-    * What will you have to do to display favorite Pokemon?
 
 ## User Stories
+* As a user (AAU) I want to create an account
+* (AAU) I want to sign in
+* (AAU) I want to log out
+* (AAU) I want to browse all the available pokemon
+* As a logged in user, I want to select my favorite Pokemon and add them to a list of favorites
+* As a logged in user, once I add a Pokemon to my list of favorites, I want to be redirected to my favorites page.
 
-* As a user, I want to select my favorite Pokemon and add them to a list of favorites.
-* As a user, once I add a Pokemon to my list of favorites, I want to be redirected to my favorites page.
+## Entity Relationship Diagram
+![erd](erd.png)
+
 
 ## Requirements
+### Part 1: Project Setup & API Investigation
+Run `npm i` to install dependencies
 
-#### Part 1: Setup Database
+Setup `server.js` with a basic express erver
+
+
+
+### Part 2: Setup Database
 
 Your first step will be to create a SQL database for your application. Recall the process:
 
@@ -46,14 +45,14 @@ Your first step will be to create a SQL database for your application. Recall th
 4. Update your newly created `config/config.json` file as we did in class. This means changing the credentials, updating the SQL flavor, and changing the database name to `pokedex`.
 5. Run `createdb pokedex` to create your database inside of Postgres
 
-#### Part 2: Create your Pokemon Model and Table
+#### Part 3: Create your Pokemon Model and Table
 
 Our data model needs only one attribute: `name`.
 
 1. Use the `sequelize model:create` command to make the `pokemon` model. This creates both the model JS and the migration JS files.
 2. Use the `sequelize db:migrate` command to apply the migrations.
 3. Confirm that your `database` and `model` are inside Postgres using the `terminal`
-4. Create a `db-test.js` with the following code:
+4. Create a `dbTest.js` with the following code:
 
 ```js
 // Make sure to require your models in the files where they will be used.
@@ -74,23 +73,23 @@ db.pokemon.findOne({
 })
 ```
 
-Test by running the file: `node db-test.js`.
+Test by running the file: `node dbTest.js`.
 
-#### Part 3: Integrating the database with the app
+### Part 3: Integrating the database with the app
 
 You'll want to add functionality to the following routes by incorporating the `pokemon` table you created.
 
 * `GET /pokemon`
   * View: `views/pokemon/index.ejs`
-  * Purpose: Retrieve all favorited Pokemon and display them on the page
+  * Purpose: Retrieve the user's favorited Pokemon and displays them on the page
   * What sequelize function will do this for us?
 * `POST /pokemon`
-  * The form for adding is already included on the main index page
+  * The form for adding will be included on the main index page
   * View: none (redirect to `/pokemon`)
   * Purpose: Creates a new Pokemon and redirects back to `/pokemon`
   * What is the sequelize function we use here?
 
-#### Part 4: Display more info on each Pokemon
+### Part 4: Display more info on each Pokemon
 
 Add a route `GET /pokemon/:name` that renders a `show` page with information about the Pokemon.
 
@@ -99,7 +98,22 @@ Add a route `GET /pokemon/:name` that renders a `show` page with information abo
 
 Check out the result of the pokemon API calls (or see the [doc page](http://pokeapi.co/)) for ideas on what data you could show. Show at least 4 pieces of data (e.g. attacks, habitat, etc.)
 
-#### Part 5: Styling
+### Part 5: Add User Model:
+Similar to how in step 3 we created a `pokemon` model, create a `user` model with fields `username` and `password`
+
+Run the migrations and test the newly made model in your `dbTest.js`
+
+### Part 6: Update app w/ User Auth
+Add conditional rendering to your Navbar. If there's a `user` logged in, render a Log Out button, and if there isn't, render Log in and Sign up buttons.
+
+Views and Routes to create:
+
+GET /auth/login - Display a login form
+GET /auth/new - Display a signup form that posts to /auth
+POST /auth - Create a user 
+
+
+### Part 7:
 
 When finished with the above, style the application more to your liking with CSS.
 

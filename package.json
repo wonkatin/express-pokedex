@@ -1,15 +1,23 @@
 {
   "name": "express-pokedex",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "express-ejs-layouts": "^2.5.0"
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "crypto-js": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.5.1",
+    "rowdy-logger": "^1.0.2",
+    "sequelize": "^6.5.0"
   }
 }
