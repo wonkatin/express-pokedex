@@ -45,7 +45,7 @@ Your first step will be to create a SQL database for your application. Recall th
 4. Update your newly created `config/config.json` file as we did in class. This means changing the credentials, updating the SQL flavor, and changing the database name to `pokedex`.
 5. Run `createdb pokedex` to create your database inside of Postgres
 
-#### Part 3: Create your Pokemon Model and Table
+### Part 3: Create your Pokemon Model and Table
 
 Our data model needs only one attribute: `name`.
 
@@ -75,7 +75,7 @@ db.pokemon.findOne({
 
 Test by running the file: `node dbTest.js`.
 
-### Part 3: Integrating the database with the app
+### Part 4: Integrating the database with the app
 
 You'll want to add functionality to the following routes by incorporating the `pokemon` table you created.
 
@@ -89,7 +89,7 @@ You'll want to add functionality to the following routes by incorporating the `p
   * Purpose: Creates a new Pokemon and redirects back to `/pokemon`
   * What is the sequelize function we use here?
 
-### Part 4: Display more info on each Pokemon
+### Part 5: Display more info on each Pokemon
 
 Add a route `GET /pokemon/:name` that renders a `show` page with information about the Pokemon.
 
@@ -98,12 +98,12 @@ Add a route `GET /pokemon/:name` that renders a `show` page with information abo
 
 Check out the result of the pokemon API calls (or see the [doc page](http://pokeapi.co/)) for ideas on what data you could show. Show at least 4 pieces of data (e.g. attacks, habitat, etc.)
 
-### Part 5: Add User Model:
+### Part 6: Add User Model:
 Similar to how in step 3 we created a `pokemon` model, create a `user` model with fields `username` and `password`
 
 Run the migrations and test the newly made model in your `dbTest.js`
 
-### Part 6: Update app w/ User Auth
+### Part 7: Update app w/ User Auth
 Add conditional rendering to your Navbar. If there's a `user` logged in, render a Log Out button, and if there isn't, render Log in and Sign up buttons.
 
 Views and Routes to create:
@@ -112,10 +112,6 @@ GET /auth/login - Display a login form
 GET /auth/new - Display a signup form that posts to /auth
 POST /auth - Create a user 
 
-
-### Part 7:
-
-When finished with the above, style the application more to your liking with CSS.
 
 ## API Limits
 You might notice the API doesn't return all the data it has at once. It has a
