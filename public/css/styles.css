@@ -9,7 +9,7 @@ nav {
     padding: 10px;
 }
 
-nav a {
+nav a, nav span {
     color: white;
     padding-left: 10px;
     text-decoration: none;

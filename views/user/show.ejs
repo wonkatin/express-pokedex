@@ -1,0 +1,8 @@
+<h1><%= user.username %>'s Favorite Pokemon</h1>
+<% for(pokemon of pokemons) { %>
+    <div>
+        <h2>
+            <a href="/pokemons/<%=pokemon.dataValues.name %>"><%=pokemon.dataValues.name %></a>
+        </h2>
+    </div>
+<% } %>

@@ -1,1 +1,15 @@
-These are my favorite pokemon!
+Generation 1 Pokedex
+
+<% for(pokemon of pokemons) { %>
+    <div class="card">
+        <h2><%= pokemon.name %></h2>
+        <a href="/pokemons/<%= pokemon.name%>">Details</a>
+        <% if (user) { %>
+            <form method="POST" action="/pokemons">
+                <input type="hidden" name="username" value="<%= user.username %>">
+                <input type="hidden" name="pokemonname" value="<%= pokemon.name %>">
+                <input type="submit" value="Add to Favorites">
+            </form>
+        <% } %>
+    </div>
+<% } %>
