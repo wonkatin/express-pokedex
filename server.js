@@ -18,7 +18,6 @@ app.use(express.static('public'))
 
 /* Controllers */
 app.use('/pokemon', require('./controllers/pokemonController'))
-app.use('/pokedex', require('./controllers/pokedexController'))
 
 /* Routes */
 app.get('/', (req, res) => {
