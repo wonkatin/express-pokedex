@@ -108,9 +108,9 @@ Add conditional rendering to your Navbar. If there's a `user` logged in, render 
 
 Views and Routes to create:
 
-GET /auth/login - Display a login form
-GET /auth/new - Display a signup form that posts to /auth
-POST /auth - Create a user 
+* GET /auth/login - Display a login form
+* GET /auth/new - Display a signup form that posts to /auth
+* POST /auth - Create a user 
 
 
 ### Part 7:
