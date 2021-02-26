@@ -112,6 +112,12 @@ Views and Routes to create:
 * GET /auth/new - Display a signup form that posts to /auth
 * POST /auth - Create a user 
 
+### Part 8: Revisit Pokemon Controller w/ the User association
+* Revisit the POST /pokemon route: When creating a pokemon, we must add the `user` relationship
+`res.locals.user.addPokemon(newPokemon)`
+* Revisit the GET /pokemon route: On the pokemon index page - show only the pokemon that belong to the logged in user!
+* If there is no logged in user - redirect to the sign in page!
+
 
 ## API Limits
 You might notice the API doesn't return all the data it has at once. It has a
