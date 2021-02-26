@@ -103,6 +103,21 @@ Similar to how in step 3 we created a `pokemon` model, create a `user` model wit
 
 Run the migrations and test the newly made model in your `dbTest.js`
 
+### Part 6.5 Add the users_pokemons join table
+* Create the join table using `sequelize model:create`
+* Update the `user` model to have a Many to Many relationship with `pokemon`
+```
+static associate(models) {
+    models.user.belongsToMany(models.pokemon, { through: 'users_pokemons'})
+}
+```
+* Update the `pokemon` model to have a Many to Many relationship with `user`
+```
+static associate(models) {
+    models.pokemon.belongsToMany(models.user, { through: 'users_pokemons'})
+}
+```
+
 ### Part 7: Update app w/ User Auth
 Add conditional rendering to your Navbar. If there's a `user` logged in, render a Log Out button, and if there isn't, render Log in and Sign up buttons.
 
