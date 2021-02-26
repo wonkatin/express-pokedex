@@ -5,6 +5,7 @@ const ejsLayouts = require('express-ejs-layouts')
 const rowdy = require('rowdy-logger')
 const cryptoJS = require('crypto-js')
 const db = require('./models')
+const axios = require('axios')
 
 const app = express()
 const rowdyResults = rowdy.begin(app)
@@ -44,11 +45,18 @@ app.use(async (req, res, next) => {
 /* Controllers */
 app.use('/pokemons', require('./controllers/pokemonController'))
 app.use('/auth', require('./controllers/authController'))
-app.use('/users/', require('./controllers/userController'))
 
 /* Routes */
 app.get('/', async (req, res) => {
-    res.render('index')
+    try {
+        const pokemonUrl = 'http://pokeapi.co/api/v2/pokemon?limit=151'
+        const response = await axios.get(pokemonUrl)
+        const pokemons = response.data.results
+        res.render('index', { pokemons: pokemons })
+    } catch (err) {
+        console.log(err)
+        res.render('index', { pokemons: [] })
+    }
 })
 
 

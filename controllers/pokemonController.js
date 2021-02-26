@@ -5,13 +5,15 @@ const axios = require('axios')
 
 router.get('/', async (req, res) => {
     try {
-        const pokemonUrl = 'http://pokeapi.co/api/v2/pokemon?limit=151'
-        const response = await axios.get(pokemonUrl)
-        const pokemons = response.data.results
-        res.render('pokemon/index', { pokemons: pokemons })
+        const user = await db.user.findOne({
+            where: { id: res.locals.user.id }, 
+            include: db.pokemon
+        })
+
+        // console.log(user)
+        res.render('pokemon/index', { pokemons: user.dataValues.pokemons } )
     } catch (err) {
         console.log(err)
-        res.redirect('/')
     }
 })
 
@@ -37,7 +39,7 @@ router.post('/', async (req, res) => {
         })
         // console.log(created);
         res.locals.user.addPokemon(newPokemon);
-        res.redirect(`/users/${res.locals.user.id}`)
+        res.redirect(`/pokemons`)
     } catch (err) {
         console.log(err)
     }

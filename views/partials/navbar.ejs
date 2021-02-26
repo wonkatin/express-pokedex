@@ -5,7 +5,7 @@
     </div>
     <div class="right">
         <% if(user) { %>
-            <a href="/users/<%= user.id %>"><%= user.username %></span>
+            <span><%= user.username %></span>
             <a href="/auth/logout">Log Out</a>    
         <% } else { %>
             <a href="/auth/login">Log In</a>
