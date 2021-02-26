@@ -28,7 +28,7 @@ We'll be using the [PokeAPI](http://pokeapi.co/), a Pokemon API that allows us t
 
 
 ## Requirements
-### Part 1: Project Setup
+### Part 1: Project Setup & API Investigation
 Run `npm i` to install dependencies
 
 Setup `server.js` with a basic express erver

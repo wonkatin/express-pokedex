@@ -1,7 +1,3 @@
 .env
 node_modules
-<<<<<<< HEAD
-config
-=======
 config/
->>>>>>> 3f75f7f4cc24af64568bcded24cc4869acfcddbb
